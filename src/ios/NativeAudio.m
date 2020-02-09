@@ -34,7 +34,7 @@ NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
     NSError *setCategoryError = nil;
 
     // Allows the application to mix its audio with audio from other apps.
-    if (![session setCategory:AVAudioSessionCategoryAmbient
+    if (![session setCategory:AVAudioSessionCategoryPlayback
                   withOptions:AVAudioSessionCategoryOptionMixWithOthers
                         error:&setCategoryError]) {
 
@@ -126,6 +126,7 @@ NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
     NSArray* arguments = command.arguments;
     NSString *audioID = [arguments objectAtIndex:0];
     NSString *assetPath = [arguments objectAtIndex:1];
+    NSString *streamType = [arguments objectAtIndex:5];
 
     NSNumber *volume = nil;
     if ( [arguments count] > 2 ) {
@@ -170,7 +171,8 @@ NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
                 NativeAudioAsset* asset = [[NativeAudioAsset alloc] initWithPath:path
                                                                       withVoices:voices
                                                                       withVolume:volume
-                                                                   withFadeDelay:delay];
+                                                                   withFadeDelay:delay
+                                                                   withStreamType: streamType];
 
                 audioMapping[audioID] = asset;
 

@@ -13,7 +13,7 @@
 static const CGFloat FADE_STEP = 0.05;
 static const CGFloat FADE_DELAY = 0.08;
 
--(id) initWithPath:(NSString*) path withVoices:(NSNumber*) numVoices withVolume:(NSNumber*) volume withFadeDelay:(NSNumber *)delay
+-(id) initWithPath:(NSString*) path withVoices:(NSNumber*) numVoices withVolume:(NSNumber*) volume withFadeDelay:(NSNumber *)delay withStreamType:(NSString*)streamType
 {
     self = [super init];
     if(self) {
@@ -40,6 +40,7 @@ static const CGFloat FADE_DELAY = 0.08;
         }
         
         playIndex = 0;
+        audioStreamType = streamType;
     }
     return(self);
 }
