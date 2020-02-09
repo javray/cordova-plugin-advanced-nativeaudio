@@ -1,3 +1,4 @@
+/// <reference path="types.d.ts" />
 /// <reference path="interfaces/Options.d.ts" />
 
 declare module 'cordova-plugin-advanced-nativeaudio' {
@@ -8,7 +9,7 @@ declare module 'cordova-plugin-advanced-nativeaudio' {
 
         static preloadSimple(id: string, assetPath: string, resultCallback: (result: any) => void, errorCallback: (error: any) => void);
 
-        static preloadComplex(id: string, assetPath: string, volume: number, voice: number, delay: number, streamType: 'music' | 'ringtone' | 'alarm', resultCallback: (result: any) => void, errorCallback: (error: any) => void);
+        static preloadComplex(id: string, assetPath: string, volume: number, voice: number, delay: number, streamType: StreamType, resultCallback: (result: any) => void, errorCallback: (error: any) => void);
 
         static play(id: string, resultCallback: (result: any) => void, errorCallback: (error: any) => void, completeCallback: (result: any) => void);
 
