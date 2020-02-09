@@ -1,11 +1,4 @@
-//
-//
-//  NativeAudioAsset.java
-//
-//  Created by Sidney Bofah on 2014-06-26.
-//
-
-package com.rjfun.cordova.plugin.nativeaudio;
+package de.hanskrywaa;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +12,7 @@ public class NativeAudioAsset
 	private ArrayList<NativeAudioAssetComplex> voices;
 	private int playIndex = 0;
 	
-	public NativeAudioAsset(AssetFileDescriptor afd, int numVoices, float volume) throws IOException
+	public NativeAudioAsset(AssetFileDescriptor afd, int numVoices, float volume, String streamType) throws IOException
 	{
 		voices = new ArrayList<NativeAudioAssetComplex>();
 		
@@ -28,7 +21,7 @@ public class NativeAudioAsset
 		
 		for ( int x=0; x<numVoices; x++) 
 		{
-			NativeAudioAssetComplex voice = new NativeAudioAssetComplex(afd, volume);
+			NativeAudioAssetComplex voice = new NativeAudioAssetComplex(afd, volume, streamType);
 			voices.add( voice );
 		}
 	}

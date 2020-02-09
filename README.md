@@ -2,47 +2,21 @@
 
 Cordova / PhoneGap 3.5+ extension for Native Audio playback, aimed at HTML5 gaming and audio applications which require minimum latency, polyphony and concurrency.
 
-## Difference From Original Plugin
+## Original Plugin
 
-1. Incorporated commits from https://github.com/floatinghotpot/cordova-plugin-nativeaudio/pull/153
-2. Incorporated commits from https://github.com/floatinghotpot/cordova-plugin-nativeaudio/pull/139
-3. Removing deprecated `AVAudioSession.h` & `AVAudioPlayer.h` import for iOS
-4. Closed [issues](https://github.com/wizpanda/cordova-plugin-nativeaudio/issues?q=is%3Aissue+is%3Aclosed)
+This Plugin is forked by [this Fork](https://github.com/wizpanda/cordova-plugin-nativeaudio) and has some added features. 
 
 ## Contents
 
 1. [Description](#description)
-2. [History](#history)
-3. [Roadmap](#roadmap)
-5. [Integration](#integration)
 7. [Supported Platforms](#supported-platforms)
 8. [Installation](#installation)
 9. [Usage](#usage)
 10. [API](#api)
-11. [Demo](#demo)
 
 ## Description
 
 This Cordova / PhoneGap (3.5+) plugin enables concurrency (multi-channel playback), polyphony (multi-voice playback) and minimized latency (via caching) in audio-based applications, by leveraging native audio APIs. Designed for the use in HTML5-based cross-platform games and mobile/hybrid audio applications.
-
-## History
-
-Community-driven, clean fork of the Low Latency Audio Plugin for Cordova / PhoneGap, initially published by [Andrew Trice](http://www.tricedesigns.com/2012/01/25/low-latency-polyphonic-audio-in-phonegap/) and then maintained by [Raymond Xie](http://github.com/floatinghotpot/) and [Sidney Bofah](https://github.com/SidneyS/).
-
-This project cleans up a lot of legacy code, and adds success, error and completion callbacks. It also features integration in AngularJS projects via [ngCordova](http://www.ngcordova.com).
-
-## Roadmap
-
-Following the Cordova philosophy, this is a shim for a web audio implementation (on mobile) which is as fast and feature-rich as native mobile APIs. Currently, neither HTML5 Audio or the more recent Web Audio API offer a cross-platform solution which 1) is fast, 2) supports polyphony, 3) concurrency and 4) maintains a low overhead.
-
-It should be replaced by a standardised W3C solution as soon as such an implementation offers comparable performance across (mobile) devices, which is crucial for HTML5-based games.
-
-## Integration
-
-This plugin is available as an AngularJS service module, facilitating the usage in AngularJS-based Cordova/PhoneGap projects.
-
-It extends the ngCordova project, an effort by the great guys at [Drifty](http://github.com/driftyco), creators of the Ionic Framework.
-Download it at the ngCordova [website](http://www.ngcordova.com) or the [repository](http://www.github.com/driftyco/ng-cordova).
 
 ## Supported Platforms
 
@@ -53,7 +27,7 @@ Download it at the ngCordova [website](http://www.ngcordova.com) or the [reposit
 
 Via Cordova CLI:
 ```bash
-cordova plugin add https://github.com/wizpanda/cordova-plugin-nativeaudio.git
+cordova plugin add cordova-plugin-advanced-nativeaudio
 ```
 
 ## Usage
@@ -204,27 +178,4 @@ if (window.plugins && window.plugins.NativeAudio) {
 
     }, 1000 * 60);
 }
-```
-
-## Demo
-
-The **Drumpad** in the examples directory is a first starting point.
-
-```bash
-[sudo] npm install plugin-verify -g
-plugin-verify cordova-plugin-nativeaudio ios
-plugin-verify cordova-plugin-nativeaudio android
-```
-
-Or, type the commands step by step:
-
-```bash
-cordova create drumpad com.example.nativeaudio drumpad
-cd drumpad
-cordova platform add ios
-cordova plugin add cordova-plugin-nativeaudio
-rm -r www/*
-cp -r plugins/cordova-plugin-nativeaudio/test/* www
-cordova build ios
-cordova emulate ios
 ```
