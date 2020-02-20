@@ -162,9 +162,14 @@ static const CGFloat FADE_DELAY = 0.08;
         self->finished(self->audioId);
     }
 
+    [self resetCategory];
+}
+
+- (void) resetCategory
+{
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
-                                           withOptions:AVAudioSessionCategoryOptionMixWithOthers
-                                           error:nil];
+    withOptions:AVAudioSessionCategoryOptionMixWithOthers
+    error:nil];
 }
 
 - (void) audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error

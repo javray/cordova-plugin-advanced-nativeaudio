@@ -267,6 +267,8 @@ AVAudioSession *session;
                     [_asset stop];
                 }
 
+                [_asset resetCategory];
+
                 NSString *RESULT = [NSString stringWithFormat:@"%@ (%@)", INFO_PLAYBACK_STOP, audioID];
                 [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: RESULT] callbackId:callbackId];
 
@@ -303,6 +305,13 @@ AVAudioSession *session;
 
             if ([asset isKindOfClass:[NativeAudioAsset class]]) {
                 NativeAudioAsset *_asset = (NativeAudioAsset*) asset;
+
+                if(![_asset->audioStreamType isEqual: @"music"]) {
+                    [session setCategory:AVAudioSessionCategoryAmbient
+                                   withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                                   error:nil];
+                }
+
                 [_asset loop];
                 NSString *RESULT = [NSString stringWithFormat:@"%@ (%@)", INFO_PLAYBACK_LOOP, audioID];
                 [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: RESULT] callbackId:callbackId];
