@@ -25,11 +25,13 @@ NSString* INFO_PLAYBACK_STOP = @"(NATIVE AUDIO) Stop";
 NSString* INFO_PLAYBACK_LOOP = @"(NATIVE AUDIO) Loop.";
 NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
 
+AVAudioSession *session;
+
 - (void)pluginInitialize
 {
     self.fadeMusic = NO;
 
-    AVAudioSession *session = [AVAudioSession sharedInstance];
+    session = [AVAudioSession sharedInstance];
     // we activate the audio session after the options to mix with others is set
     NSError *setCategoryError = nil;
 
@@ -206,6 +208,12 @@ NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
             if (asset != nil){
                 if ([asset isKindOfClass:[NativeAudioAsset class]]) {
                     NativeAudioAsset *_asset = (NativeAudioAsset*) asset;
+
+                    if(![_asset->audioStreamType isEqual: @"music"]) {
+                        [session setCategory:AVAudioSessionCategoryAmbient
+                                       withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                                       error:nil];
+                    }
 
                     if(self.fadeMusic) {
                         // Music assets are faded in

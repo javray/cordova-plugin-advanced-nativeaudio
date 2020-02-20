@@ -18,6 +18,7 @@ typedef void (^CompleteCallback)(NSString*);
     CompleteCallback finished;
     NSNumber *initialVolume;
     NSNumber *fadeDelay;
+    @public
     NSString* audioStreamType;
 }
 
