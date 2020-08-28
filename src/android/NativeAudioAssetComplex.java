@@ -1,4 +1,4 @@
-package de.hanskrywaa;
+package de.einfachhans.NativeAudio;
 
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;

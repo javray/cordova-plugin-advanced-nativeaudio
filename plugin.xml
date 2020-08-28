@@ -6,13 +6,13 @@
         version="1.0.3">
 
     <name>Cordova Native Audio</name>
-    <author>HansKrywaa</author>
+    <author>EinfachHans</author>
     <description>Cordova/PhoneGap Plugin for low latency Native Audio Playback, must have for HTML5 games</description>
 
     <license>MIT</license>
-    <keywords>audio,fx,music,mp3,game,hanskrywaa</keywords>
-    <repo>https://github.com/HansKrywaa/cordova-plugin-advanced-nativeaudio</repo>
-    <issue>https://github.com/HansKrywaa/cordova-plugin-advanced-nativeaudio/issues</issue>
+    <keywords>audio,fx,music,mp3,game,einfachhans</keywords>
+    <repo>https://github.com/EinfachHans/cordova-plugin-advanced-nativeaudio</repo>
+    <issue>https://github.com/EinfachHans/cordova-plugin-advanced-nativeaudio/issues</issue>
 
     <engines>
         <engine name="cordova" version=">=3.5"/>
@@ -26,13 +26,13 @@
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="NativeAudio">
-                <param name="android-package" value="de.hanskrywaa.NativeAudio"/>
+                <param name="android-package" value="de.einfachhans.NativeAudio.NativeAudio"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/NativeAudio.java" target-dir="de/hanskrywaa"/>
-        <source-file src="src/android/NativeAudioAsset.java" target-dir="de/hanskrywaa"/>
-        <source-file src="src/android/NativeAudioAssetComplex.java" target-dir="de/hanskrywaa"/>
+        <source-file src="src/android/NativeAudio.java" target-dir="de/einfachhans/NativeAudio"/>
+        <source-file src="src/android/NativeAudioAsset.java" target-dir="de/einfachhans/NativeAudio"/>
+        <source-file src="src/android/NativeAudioAssetComplex.java" target-dir="de/einfachhans/NativeAudio"/>
 
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>

@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HansKrywaa/cordova-plugin-advanced-nativeaudio"
+    "url": "https://github.com/EinfachHans/cordova-plugin-advanced-nativeaudio"
   },
   "bugs": {
-    "url": "https://github.com/HansKrywaa/cordova-plugin-advanced-nativeaudio/issues"
+    "url": "https://github.com/EinfachHans/cordova-plugin-advanced-nativeaudio/issues"
   },
   "keywords": [
     "cordova",
@@ -25,7 +25,7 @@
     "mp3"
   ],
   "author": {
-    "name": "HansKrywaa"
+    "name": "EinfachHans"
   },
   "license": "MIT",
   "main": "./src/ionic/index.js",
