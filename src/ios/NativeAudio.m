@@ -107,6 +107,12 @@ AVAudioSession *session;
                 NSString *RESULT = [NSString stringWithFormat:@"%@ (%@)", INFO_ASSET_LOADED, audioID];
                 [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: RESULT] callbackId:callbackId];
 
+            } else if ([assetPath hasPrefix:HTTP_SCHEME_PREFIX] || [assetPath hasPrefix:HTTPS_SCHEME_PREFIX]) {
+                NSURL *pathURL = [NSURL URLWithString:assetPath];
+                CFURLRef        soundFileURLRef = (CFURLRef) CFBridgingRetain(pathURL);
+                SystemSoundID soundID;
+                AudioServicesCreateSystemSoundID(soundFileURLRef, & soundID);
+                audioMapping[audioID] = [NSNumber numberWithInt:soundID];
             } else {
                 NSString *RESULT = [NSString stringWithFormat:@"%@ (%@)", ERROR_ASSETPATH_INCORRECT, assetPath];
                 [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString: RESULT] callbackId:callbackId];
