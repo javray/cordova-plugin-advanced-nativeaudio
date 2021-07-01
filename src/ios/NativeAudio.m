@@ -9,6 +9,9 @@
 #import "NativeAudio.h"
 #import <AVFoundation/AVFoundation.h>
 
+#define HTTP_SCHEME_PREFIX @"http://"
+#define HTTPS_SCHEME_PREFIX @"https://"
+
 @implementation NativeAudio
 
 NSString* ERROR_ASSETPATH_INCORRECT = @"(NATIVE AUDIO) Asset not found.";
@@ -24,9 +27,6 @@ NSString* INFO_PLAYBACK_PLAY = @"(NATIVE AUDIO) Play";
 NSString* INFO_PLAYBACK_STOP = @"(NATIVE AUDIO) Stop";
 NSString* INFO_PLAYBACK_LOOP = @"(NATIVE AUDIO) Loop.";
 NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
-
-#define HTTP_SCHEME_PREFIX @"http://";
-#define HTTPS_SCHEME_PREFIX @"https://";
 
 AVAudioSession *session;
 
